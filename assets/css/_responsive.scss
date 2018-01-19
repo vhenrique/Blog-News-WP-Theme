@@ -1,0 +1,52 @@
+/* Ipads and Tablets */
+@media (max-width: 990px) { 
+
+	/* MAIN MENU */
+	#main-menu {
+		position: relative;
+		.showMenu{
+			display: block;	}
+		& > ul {
+			background: inherit; }
+		.hover-menu {
+			position: absolute;
+			z-index: 60;
+			right: 0;
+			background-color: #FFF; 
+			opacity: 0;
+			height: 0;
+			overflow: hidden;
+			transition: opacity .5s ease-in-out;
+			&.active {
+				overflow: scroll;
+				height: 450px;
+				opacity: 1;	}
+			& > li {
+				display: block;
+				&:hover > a:after {
+					width: 90%; }
+				& > a:first-child {
+					font-size: 22px; }
+				a {
+					padding: 5px 10px;
+					display: block;
+					font-size: 16px;
+					color: $fontColorDefault; }
+				.sub-menu {
+					border: none;
+					position: relative;
+					height: auto;
+					opacity: 1;
+					a {
+						padding: 5px 0px;
+						border: none;
+						border-top: none;
+						min-width: 180px; }
+				}
+			}
+		}
+	}
+	.post-box .post-content .img-center {
+		width: 100%;
+		height: auto; }
+}

@@ -1,0 +1,521 @@
+/*! 
+* Theme Name: BAE Daily
+* Theme URI: http://vhenrique.com
+* Author: Vitor Henrique
+* Author URI: http://vhenrique.com
+* Description: This is a light and performative WordPress news theme. It uses Bootstrap, Redux Framework, Custom meta boxes and custom tax meta. Enjoy it!
+* Version: 1.9.8
+* Tags: Boostatrap, Responsive, News, Sass, Posts, Blog, HTML5, CSS3
+* License: GNU General Public License v2.0
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+* Text Domain: baedaily
+* Domain Path: /languages
+*/
+
+@charset "iso-8859-1";
+
+@import 'assets/css/_variables.scss';
+
+.mOffsetSmall {
+	margin: $offsetSmall; }
+.pOffsetSmall {
+	padding: $offsetSmall; }
+.mOffsetMedium {
+	margin: $offsetMedium;
+}
+
+/********** HEADER **********/
+#site-header {
+	margin-bottom: 0;
+	background: rgba(255, 255, 255, 0.8);
+	&.fixed {
+		position: fixed;
+		z-index: 99;
+		top: 0;
+		.container {
+			padding-top: 10px;
+			padding-bottom: 10px; }
+	}
+	.container {
+		transition: padding .5s ease-in-out;
+		padding-top: 35px;
+		padding-bottom: 35px; }
+}
+
+/********** MENU **********/
+#main-menu {
+	margin: 0;
+	padding: 0;
+	.showMenu {
+		display: none;
+		color: $fontColorDefault;
+		font-size: 30px;
+		width: 100%;
+		text-align: right; }
+	& > ul {
+		font-family: $fontFamilyHighlight;
+		background: url('assets/img/menu-bg.png') no-repeat;
+		background-size: 100%;
+		background-position-y: 55%;
+	}
+	.hover-menu {
+		list-style: none;
+		display: inline-block;
+		& > li {
+			display: inline-block;
+			position: relative;
+			&:hover > a:after {
+				content:'';
+				position: absolute;
+				display: block;
+				width: 85%;
+				left: 5%;
+				border: solid 1px $fontColorDefault; }
+			& > a:hover {
+				text-decoration: none; }
+			a {
+				padding: 10px 20px;
+				display: block;
+				font-size: 18px;
+				color: $fontColorDefault; }
+			.sub-menu {
+				background-color: #FFF; 
+				list-style: none;
+				border: 1px solid #e3e3e3;
+				position: absolute;
+				padding: 0;
+				height: 0;
+				overflow: hidden;
+				z-index: 100;
+				opacity: 0;
+				transition: opacity .4s ease-in-out;
+				a {
+					padding: 10px 0px;
+					border: solid 1px #e3e3e3;
+					border-top: none;
+					min-width: 180px;
+				}
+			}
+			&:hover > .sub-menu {
+				height: auto;
+				opacity: 1;
+			}
+		}
+	}
+}
+
+/********** HOME **********/
+
+	/* Featured posts */
+	.post-box {
+		margin-bottom: 10px; 
+		.post-content {
+			position: relative;
+			.showShare {
+				position: absolute;
+				top: 15px;
+				background-color: #828080;
+				color: #FFF;
+				padding: 2px 10px;
+				font-size: 15px;
+			}
+			.primary-tax {
+				font-family: $fontFamilyHighlight;
+				position: absolute;
+				font-size: 20px;
+				top: 10px;
+				right: 0px;
+				padding: 5px 10px;
+				box-shadow: 0px 2px 5px -3px #000;
+				background-color: #ffeb08;
+				color: $fontColorDefault; 
+				&.dark {
+					background-color: #828080;
+					color: #FFF; }
+			}
+			.post-title {
+				color: #FFF;
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.7);
+				h3 {
+					font-size: 20px;
+					margin: 0;
+					padding: 10px; }
+			}
+			.shareContent {
+				position: absolute;
+				z-index: 10;
+				background: rgba(0, 0, 0, 0.6);
+				top: 0;
+				height: 0;
+				overflow: hidden;
+				opacity: 0;
+				transition: all .4s ease-in-out;
+				&.active {
+					opacity: 1;
+					height: 100%;
+				}
+				.closeShare {
+					color: #FFF;
+				    font-size: 20px;
+				    position: absolute;
+				    right: 0;
+				    top: 0;
+				    padding: 5px 10px;
+				}
+				h2 {
+					color: #ffeb08; }
+				.shareButtons {
+					list-style: none;
+					li {
+						background-color: #FFF;
+						display: inline-block;
+						a {
+							color: $fontColorDefault; }
+					}
+				}
+			}
+			.img-container {
+				min-height: 180px;
+				display: block; }
+		}
+		&.big {
+			.post-content {
+				.showShare {
+					top: 20px;
+					font-size: 20px;
+					padding: 2px 15px; }
+				.primary-tax {
+					font-size: 25px;
+					top: 20px;
+					padding: 10px 30px;	}
+				.post-title {
+					background-color: inherit;
+					width: auto;
+					max-width: 95%;
+					bottom: 50px;
+					left: 20px;
+					h1 {
+						margin: 0;
+						display: inline;
+						background-color: #000;
+						a {
+							font-weight: bold;
+							line-height: 42px;
+							color: #FFF;
+							box-decoration-break: clone;
+							-webkit-box-decoration-break: clone;
+							-o-box-decoration-break: clone;
+							padding: 10px;
+							display: inline;
+						}
+					}
+					h3 {
+						background: url('assets/img/featured.png') no-repeat;
+						font-size: 25px;
+						width: 110px;
+						display: block;
+						padding: 0 10px;
+						color: $fontColorDefault; }
+					&:hover {
+						text-decoration: none; }
+				}
+				.shareContent {
+					.closeShare {
+					    font-size: 25px;
+					    padding: 10px 15px;
+					}
+				}
+			}
+		}
+	}
+	#home {
+		padding: $offsetBig; }
+
+	/* Breaking bar */
+	#breaking-bar {
+		div {
+			padding: 0; 
+			&:first-child:after {
+				content: '';
+				padding: 10px;
+				background-color: #ffeb08;
+				position: absolute;
+				right: -9px;
+				top: 16px;
+				z-index: 10;
+				transform: rotate(125deg) skew(10deg, 30deg);
+			}
+		}
+		h2 {
+			margin: 0;
+			padding: 10px 40px;
+			display: block;
+			background-color: #ffeb08;
+			text-align: right;
+		}
+		a {
+			color: #FFF;
+			h2 {
+				background-color: #000;
+				text-align: left;
+
+			}
+		}
+	}
+
+
+/********** BREADCRUMB **********/
+.breadcrumb {
+	background: inherit;
+	padding: 5px 0; 
+	& > li + li {
+		&::before {
+			color: $fontColorDefault;
+			font-size: 15px;
+			font-family: $fontFamilyHighlight;
+		}
+	}
+	a {
+		font-family: 'Lato', sans-serif;
+		color: $fontColorDefault;
+		font-weight: bold;
+	}
+}
+
+/********** Single page **********/
+#single-post, #site-map {
+	.post-share {
+		list-style: none;
+		display: inline-block;
+		width: 100%;
+		li {
+			display: inline-block;
+			.share-button{
+				border-radius: 3px;
+				margin: 0 5px;
+				a {
+					color: #FFF;
+					display: block;
+					label {
+						margin-left: 15px;
+						vertical-align: middle;
+						cursor: pointer;	}
+					i {
+						margin-left: 0px;
+						font-size: 22px;
+						padding: 8px 10px;
+						border-top-left-radius: 5px;
+						border-bottom-left-radius: 5px;
+						width: 40px;
+						text-align: center; }
+				}
+				&.facebook {
+					background-color: #3b5895;
+					i {
+						background-color: #4362a5;
+					}
+				}
+				&.twitter {
+					background-color: #03a4dd;
+					i {
+						background-color: #03b4f2;
+					}
+				}
+				&.google {
+					background-color: #d04d33;
+					i {
+						background-color: #e35439;
+					}
+				}
+				&.pinterest {
+					background-color: #c11c1f;
+					i {
+						background-color: #d31f21;
+					}
+				}
+			}
+		}
+	}
+	.post-title {
+		font-size: 40px; }
+	.post-content {
+		display: inline-block;
+		width: 100%;
+		.share-button a {
+			background: url('assets/img/fb-share.png') no-repeat;
+			display: block;
+			display: block;
+			margin: 15px auto;
+			width: 265px;
+			height: 50px; }
+		article {
+			figure {
+				img {
+					margin: $offsetMedium;
+				}
+			}
+		}
+		.pps-slider-nav {
+			.pps-next {
+				background: url();
+			}
+		}
+		.map-list {
+			list-style: none;
+			.sub-menu {
+				list-style: none;
+				margin: 0 0 10px 10px;
+			}
+		}
+	}
+	#pagination {
+		border-bottom: 1px solid #ccc;
+	    border-top: 1px solid #ccc;
+	    font-size: 1.1em;
+	    font-weight: bold;
+	    line-height: 1.5;
+	    margin: 1em 0;	    
+	    text-transform: uppercase;
+	    padding: .75em 0;
+	    span {
+			text-transform: none; }
+		a.prev {
+			float: left; }
+		a.next {
+			float: right; }
+	}
+	.ramdom-category {
+		display: inline-block; }
+}
+
+/********** ARCHIVE **********/
+#archive-post {
+	.post-title, .post-meta {
+		display: block;
+		h4 {
+			color: #999; }
+		a {
+			color: $fontColorDefault; }
+	}
+	.page-numbers {
+		list-style: none;
+		li {
+			display: inline-block;
+			a , span {
+				background-color: #FFF200;
+				padding: 10px 15px;
+				color: $fontColorDefault;
+			}
+		}
+	}
+}
+
+/********** 404 **********/
+.error404 {
+	.post-content {
+		article {
+			font-family: $fontFamilyHighlight;
+			letter-spacing: 2px;
+			font-size: 16px;
+		}
+	}
+}
+
+/********** SIDEBAR **********/
+#sidebar, #single-post {
+	.searchForm {
+		position: relative;
+		.form-control {
+			border-radius: 0;
+			border: none;
+			border-bottom: solid 2px #5a595b;
+			box-shadow: none; }
+		.searchSubmit {
+			position: absolute;
+			top: 0;
+			right: 0;
+			font-size: 20px;
+			padding: 2px 10px;
+			background: inherit; }
+	}
+	.widget-title, .category-title {
+		background: url('assets/img/ribbon.png') no-repeat;
+		background-position: 50%;
+		display: inline-block;
+		padding: 0 10px;
+	}
+	.post-content img {
+		width: 100%; }
+}
+
+/********** FOOTER **********/
+.vertical-center {
+	display: table;
+	width: 100%;
+    height: 100%;
+	.vertical {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+#footer-menu {
+	ul {
+		list-style: none;
+		li {
+			display: inline-block;
+			border-right: solid 1px #fff;
+    		padding: 0px 5px;
+    		&:last-child {
+    			border-right: none;
+    		}
+		}
+	}
+}
+#social {
+	list-style: none;
+	li {
+		display: inline-block;
+		background-color: #FFF;
+		border-radius: 25px;
+		margin: 10px 5px;
+		a {
+			color: #252525;
+			padding: 8px 0px;
+			display: block;
+			font-size: 18px;
+			height: 42px;
+			width: 42px;
+		}
+	}
+}
+#site-footer {
+	background-color: #252525; 
+	font-family: 'Helvetica';
+	font-weight: 700;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #FFF;
+	padding: 10px 0;
+	a {
+		color: #FFF; }
+}
+#terms-menu {
+	display: inline-block;
+	ul {
+		list-style: none;
+		display: block;
+		li {
+			display: inline-block;
+			border-right: solid 1px #fff;
+    		padding: 0px 5px;
+    		&:last-child {
+    			border-right: none;
+    		}
+		}
+	}
+}
+
+@import 'assets/css/_responsive.scss';

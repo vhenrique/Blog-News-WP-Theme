@@ -1,0 +1,72 @@
+	@font-face {
+		font-family: 'BebasNeue';
+		src: url('assets/fonts//bebasNeue.otf');
+	  	font-weight: normal;
+	  	font-style: normal;
+	  	font-stretch: expanded;
+	}
+
+	@import url('https://fonts.googleapis.com/css?family=Raleway');
+	@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+	/** Vars **/
+	/* Font */
+	$fontColorDefault: #101010;
+	$fontFamilyDefault: 'Raleway', sans-serif;
+	$fontColorHighlight: #cebc98;
+	$fontFamilyHighlight: 'BebasNeue', Verdana;
+
+	/* Offset */
+	$offsetSmall: 15px 0;
+	$offsetMedium: 25px 0;
+	$offsetBig: 40px 0;
+
+	/* Useful classes */
+	.img-center {
+		display: block;
+		margin: 0 auto;
+		float: none; }
+	.full {
+		width: 100%; }
+
+	/** Standart settings **/
+	* {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline; }
+	body {
+		font-family: $fontFamilyDefault;
+		color: $fontColorDefault;
+		position: relative;
+		overflow-x: hidden; }
+	h1, h2, h3 {
+		font-family: $fontFamilyHighlight; }
+	a:focus, a:hover {
+		color: inherit;
+	}
+
+	/* Bootstrap overcharges */
+	.btn {
+		font-family: $fontFamilyHighlight;
+		font-size: 16px;
+		padding: 5px 25px;
+		background-color: #000;
+		color: #FFF;
+		text-transform: uppercase;
+		border-radius: unset;
+		border-bottom: solid 5px #575757;
+		&:hover {
+			background-color: #ffeb08;
+			color: #000;
+		}
+	}
+	.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, 
+	.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, 
+	.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, 
+	.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+		padding-left: 5px;
+		padding-right: 5px; }	
